@@ -1,3 +1,5 @@
 #!/bin/bash
 
-go run $WERCKER_STEP_ROOT/main.go
+uname -a  
+
+# go run $WERCKER_STEP_ROOT/main.go
