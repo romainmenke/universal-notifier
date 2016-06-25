@@ -1,3 +1,3 @@
 #!/bin/bash
 
-universal-notifier
+$WERCKER_STEP_ROOT/universal-notifier
