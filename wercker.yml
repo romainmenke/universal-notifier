@@ -1,14 +1,4 @@
-box: golang
-
+box: wercker/default
 build:
   steps:
-    - setup-go-workspace
-
-    - script:
-        name: go build
-        code: |
-          go build
-    - script:
-        name: go test
-        code: |
-          go test
+    - validate-wercker-step
