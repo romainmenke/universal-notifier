@@ -24,7 +24,7 @@ message Result {
 
 	bool result = 100;
 	string failed_step_name = 101;
-	string failed_Step_message = 102;
+	string failed_step_message = 102;
 
 }
 
