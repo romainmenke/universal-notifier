@@ -1,5 +1,3 @@
 #!/bin/bash
 
-uname -a  
-
-# go run $WERCKER_STEP_ROOT/main.go
+$WERCKER_STEP_ROOT/universal-notifier
