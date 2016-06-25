@@ -40,8 +40,8 @@ func New(ctx context.Context) (*WerckerEnv, error) {
 
 	env := WerckerEnv{}
 
-	env.port = os.Getenv("PORT")
-	env.host = os.Getenv("URL")
+	env.port = os.Getenv("WERCKER_UNIVERSAL_NOTIFIER_PORT")
+	env.host = os.Getenv("WERCKER_UNIVERSAL_NOTIFIER_HOST")
 
 	if env.port == "" || env.host == "" {
 		return nil, span.Error("Set REMOTE_HOST and REMOTE_PORT")
