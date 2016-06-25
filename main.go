@@ -27,6 +27,8 @@ func main() {
 		return
 	}
 
+	fmt.Printf("Getting ready to dial %s", env.Host())
+
 	message, err := env.NewMessage(ctx)
 	if err != nil {
 		fmt.Println(err)
@@ -34,7 +36,7 @@ func main() {
 		return
 	}
 
-	conn, err := grpc.Dial(env.Host(), grpc.WithInsecure(), grpc.WithTimeout(10))
+	conn, err := grpc.Dial(env.Host(), grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
@@ -47,5 +49,7 @@ func main() {
 		log.Fatal(err)
 		return
 	}
+
+	fmt.Println("Successfully notified your service")
 
 }
