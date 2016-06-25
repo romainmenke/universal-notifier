@@ -1,0 +1,24 @@
+name: universal-notifier
+version: 0.1.0
+description: Send wercker build/deploy status over gRPC.
+keywords:
+  - notification
+  - webhook
+  - gRPC
+properties:
+  url:
+    type: string
+    required: true
+  channel:
+    type: string
+    required: false
+  username:
+    type: string
+    required: false
+  notify_on:
+    type: string
+    default: all
+    required: false
+  icon_url:
+    type: string
+    required: false

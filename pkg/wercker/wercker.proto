@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package wercker;
+
+service NotificationService {
+	rpc Notify (WerckerMessage) returns (WerckerResponse) {}
+}
+
+message WerckerResponse {
+	bool success = 100;
+}
+
+message Git {
+
+	string domain = 100;
+	string owner = 101;
+	string repository = 102;
+	string branch = 103;
+	string commit = 104;
+
+}
+
+message Result {
+
+	bool result = 100;
+	string failed_step_name = 101;
+	string failed_Step_message = 102;
+
+}
+
+message Build {
+
+	int64 started = 100;
+	string url = 101;
+	string user = 102;
+
+	enum Action {
+
+		BUILD = 0;
+		DEPLOY = 1;
+
+	}
+	Action action = 103;
+
+}
+
+message WerckerMessage {
+
+	string url = 100;
+
+	Build build = 200;
+	Result result = 201;
+	Git git = 202;
+
+}
+
+
+//protoc -I ./ ./wercker.proto --go_out=plugins=grpc:./
