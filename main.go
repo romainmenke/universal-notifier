@@ -13,15 +13,14 @@ import (
 
 func main() {
 
+	fmt.Println("Notify")
+
 	ctx := context.Background()
 
 	span, _ := trace.New(ctx, "New Send Wercker Message Job")
 	defer span.Close()
 
 	env, err := wercker.New(ctx)
-
-	fmt.Println("Notify")
-
 	if err != nil {
 		fmt.Println(err)
 		span.Error(err)
@@ -29,6 +28,11 @@ func main() {
 	}
 
 	message, err := env.NewMessage(ctx)
+	if err != nil {
+		fmt.Println(err)
+		span.Error(err)
+		return
+	}
 
 	conn, err := grpc.Dial(env.Host(), grpc.WithInsecure())
 	if err != nil {
@@ -39,8 +43,9 @@ func main() {
 	c := wercker.NewNotificationServiceClient(conn)
 	_, err = c.Notify(ctx, message)
 	if err != nil {
-		fmt.Println(err)
 		span.Error(err)
+		log.Fatal(err)
+		return
 	}
 
 }
