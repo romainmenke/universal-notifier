@@ -1,8 +1,8 @@
-box: google/golang
-
+box: golang
 build:
   steps:
     - setup-go-workspace
+    
     - validate-wercker-step
 
     - script:
