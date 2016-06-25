@@ -6,19 +6,9 @@ keywords:
   - webhook
   - gRPC
 properties:
-  url:
+  host:
     type: string
     required: true
-  channel:
+  port:
     type: string
-    required: false
-  username:
-    type: string
-    required: false
-  notify_on:
-    type: string
-    default: all
-    required: false
-  icon_url:
-    type: string
-    required: false
+    required: true
