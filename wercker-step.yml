@@ -1,5 +1,5 @@
 name: universal-notifier
-version: 0.1.0
+version: 0.1.1
 description: Send wercker build/deploy status over gRPC.
 keywords:
   - notification

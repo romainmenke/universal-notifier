@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 
 	"limbo.services/trace"
@@ -19,7 +20,11 @@ func main() {
 
 	env, err := wercker.New(ctx)
 
+	fmt.Println("Notify")
+
 	if err != nil {
+		fmt.Println(err)
+		span.Error(err)
 		return
 	}
 
@@ -34,6 +39,7 @@ func main() {
 	c := wercker.NewNotificationServiceClient(conn)
 	_, err = c.Notify(ctx, message)
 	if err != nil {
+		fmt.Println(err)
 		span.Error(err)
 	}
 
