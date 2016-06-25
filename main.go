@@ -34,7 +34,7 @@ func main() {
 		return
 	}
 
-	conn, err := grpc.Dial(env.Host(), grpc.WithInsecure())
+	conn, err := grpc.Dial(env.Host(), grpc.WithInsecure(), grpc.WithTimeout(10))
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
