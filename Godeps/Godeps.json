@@ -1,0 +1,76 @@
+{
+	"ImportPath": "github.com/romainmenke/universal-notifier",
+	"GoVersion": "go1.6",
+	"GodepVersion": "v74",
+	"Deps": [
+		{
+			"ImportPath": "github.com/golang/protobuf/proto",
+			"Rev": "0c1f6d65b5a189c2250d10e71a5506f06f9fa0a0"
+		},
+		{
+			"ImportPath": "github.com/pborman/uuid",
+			"Comment": "v1.0-11-gc55201b",
+			"Rev": "c55201b036063326c5b1b89ccfe45a184973d073"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "4876518f9e71663000c348837735820161a42df7"
+		},
+		{
+			"ImportPath": "golang.org/x/net/http2",
+			"Rev": "4876518f9e71663000c348837735820161a42df7"
+		},
+		{
+			"ImportPath": "golang.org/x/net/http2/hpack",
+			"Rev": "4876518f9e71663000c348837735820161a42df7"
+		},
+		{
+			"ImportPath": "golang.org/x/net/internal/timeseries",
+			"Rev": "4876518f9e71663000c348837735820161a42df7"
+		},
+		{
+			"ImportPath": "golang.org/x/net/trace",
+			"Rev": "4876518f9e71663000c348837735820161a42df7"
+		},
+		{
+			"ImportPath": "google.golang.org/grpc",
+			"Rev": "e78224b060cf3215247b7be455f80ea22e469b66"
+		},
+		{
+			"ImportPath": "google.golang.org/grpc/codes",
+			"Rev": "e78224b060cf3215247b7be455f80ea22e469b66"
+		},
+		{
+			"ImportPath": "google.golang.org/grpc/credentials",
+			"Rev": "e78224b060cf3215247b7be455f80ea22e469b66"
+		},
+		{
+			"ImportPath": "google.golang.org/grpc/grpclog",
+			"Rev": "e78224b060cf3215247b7be455f80ea22e469b66"
+		},
+		{
+			"ImportPath": "google.golang.org/grpc/internal",
+			"Rev": "e78224b060cf3215247b7be455f80ea22e469b66"
+		},
+		{
+			"ImportPath": "google.golang.org/grpc/metadata",
+			"Rev": "e78224b060cf3215247b7be455f80ea22e469b66"
+		},
+		{
+			"ImportPath": "google.golang.org/grpc/naming",
+			"Rev": "e78224b060cf3215247b7be455f80ea22e469b66"
+		},
+		{
+			"ImportPath": "google.golang.org/grpc/peer",
+			"Rev": "e78224b060cf3215247b7be455f80ea22e469b66"
+		},
+		{
+			"ImportPath": "google.golang.org/grpc/transport",
+			"Rev": "e78224b060cf3215247b7be455f80ea22e469b66"
+		},
+		{
+			"ImportPath": "limbo.services/trace",
+			"Rev": "48fb37a6af50cd5a95c963b2650669c333e9ac81"
+		}
+	]
+}
