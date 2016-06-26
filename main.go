@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"limbo.services/trace"
+	"limbo.services/trace/dev"
 
 	"github.com/romainmenke/universal-notifier/pkg/wercker"
 	"golang.org/x/net/context"
@@ -12,6 +13,8 @@ import (
 )
 
 func main() {
+
+	trace.DefaultHandler = dev.NewHandler(nil)
 
 	fmt.Println("Notify")
 

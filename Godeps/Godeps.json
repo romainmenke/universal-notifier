@@ -71,6 +71,10 @@
 		{
 			"ImportPath": "limbo.services/trace",
 			"Rev": "48fb37a6af50cd5a95c963b2650669c333e9ac81"
+		},
+		{
+			"ImportPath": "limbo.services/trace/dev",
+			"Rev": "48fb37a6af50cd5a95c963b2650669c333e9ac81"
 		}
 	]
 }
