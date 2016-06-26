@@ -149,3 +149,28 @@ func (e *WerckerEnv) NewMessage(ctx context.Context) (*WerckerMessage, error) {
 func (e *WerckerEnv) Host() string {
 	return fmt.Sprintf("%s:%s", e.host, e.port)
 }
+
+func TestEnv() *WerckerEnv {
+	return &WerckerEnv{
+		port:           "50051",
+		host:           "0.0.0.0",
+		started:        "12345",
+		ci:             "",
+		buildURL:       "localhost",
+		domain:         "github.com",
+		owner:          "romainmenke",
+		repo:           "test",
+		branch:         "master",
+		commit:         "update",
+		root:           "",
+		source:         "",
+		cache:          "",
+		output:         "",
+		user:           "romainmenke",
+		applicationURL: "",
+		result:         "success",
+		stepName:       "blah",
+		stepMessage:    "stuf",
+		action:         Build_BUILD,
+	}
+}
