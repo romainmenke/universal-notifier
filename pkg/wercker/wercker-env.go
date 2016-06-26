@@ -153,7 +153,7 @@ func (e *WerckerEnv) Host() string {
 func TestEnv() *WerckerEnv {
 	return &WerckerEnv{
 		port:           "50051",
-		host:           "0.0.0.0",
+		host:           "52.51.22.243",
 		started:        "12345",
 		ci:             "",
 		buildURL:       "localhost",
@@ -168,7 +168,7 @@ func TestEnv() *WerckerEnv {
 		output:         "",
 		user:           "romainmenke",
 		applicationURL: "",
-		result:         "success",
+		result:         "false",
 		stepName:       "blah",
 		stepMessage:    "stuf",
 		action:         Build_BUILD,
