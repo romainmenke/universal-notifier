@@ -9,8 +9,6 @@ Does no internal handling of anything. Just takes the results and sends them to 
 
 ### required
 
-> This variables can be set at the step on your ```wercker.yml``` file or at the deploy targer variables. Just declare them like: ```WERCKER_SLACK_NOTIFY_SUBDOMAIN```, ```WERCKER_SLACK_NOTIFY_TOKEN``` and ```WERCKER_SLACK_NOTIFY_CHANNEL```
-
 - `host` - Your Service URL.
 - `port` - Your Service Port (gRPC has 50051 as default).
 
@@ -70,7 +68,7 @@ func (s *server) Notify(ctx context.Context, in *wercker.WerckerMessage) (*werck
 }
 ```
 
-Proto 
+Proto
 
 ```protoc
 message Git {
