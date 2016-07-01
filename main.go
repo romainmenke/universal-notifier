@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 
 	"limbo.services/trace"
 	"limbo.services/trace/dev"
@@ -20,12 +19,11 @@ func main() {
 
 	ctx := context.Background()
 
-	span, _ := trace.New(ctx, "New Send Wercker Message Job")
+	span, ctx := trace.New(ctx, "client.grpc.notify")
 	defer span.Close()
 
 	env, err := wercker.New(ctx)
 	if err != nil {
-		fmt.Println(err)
 		span.Error(err)
 		return
 	}
@@ -34,14 +32,19 @@ func main() {
 
 	message, err := env.NewMessage(ctx)
 	if err != nil {
-		fmt.Println(err)
 		span.Error(err)
+		return
+	}
+
+	if message.Git.Branch != "master" {
+		span.Error("Not on the master branch")
 		return
 	}
 
 	conn, err := grpc.Dial(env.Host(), grpc.WithInsecure())
 	if err != nil {
-		log.Fatalf("did not connect: %v", err)
+		fmt.Printf("did not connect: %v", err)
+		return
 	}
 	defer conn.Close()
 
@@ -49,7 +52,6 @@ func main() {
 	_, err = c.Notify(ctx, message)
 	if err != nil {
 		span.Error(err)
-		log.Fatal(err)
 		return
 	}
 

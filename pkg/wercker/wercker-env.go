@@ -35,7 +35,7 @@ type WerckerEnv struct {
 
 func New(ctx context.Context) (*WerckerEnv, error) {
 
-	span, _ := trace.New(ctx, "Send batch of messages to Index SQS Queue")
+	span, _ := trace.New(ctx, "client.grpc.newEnv")
 	defer span.Close()
 
 	env := WerckerEnv{}
@@ -109,7 +109,7 @@ func (e *WerckerEnv) NewResult() *Result {
 
 func (e *WerckerEnv) NewBuild(ctx context.Context) (*Build, error) {
 
-	span, _ := trace.New(ctx, "Create Build Struct")
+	span, _ := trace.New(ctx, "client.grpc.newBuild")
 	defer span.Close()
 
 	started, err := strconv.ParseInt(e.started, 10, 64)
@@ -127,7 +127,7 @@ func (e *WerckerEnv) NewBuild(ctx context.Context) (*Build, error) {
 
 func (e *WerckerEnv) NewMessage(ctx context.Context) (*WerckerMessage, error) {
 
-	span, _ := trace.New(ctx, "Create Wercker Message")
+	span, _ := trace.New(ctx, "client.grpc.newMessage")
 	defer span.Close()
 
 	build, err := e.NewBuild(ctx)
