@@ -19,12 +19,9 @@ func main() {
 
 	ctx := context.Background()
 
-	span, ctx := trace.New(ctx, "client.grpc.notify")
-	defer span.Close()
-
 	env, err := wercker.New(ctx)
 	if err != nil {
-		span.Error(err)
+		fmt.Println(err)
 		return
 	}
 
@@ -32,18 +29,18 @@ func main() {
 
 	message, err := env.NewMessage(ctx)
 	if err != nil {
-		span.Error(err)
+		fmt.Println(err)
 		return
 	}
 
-	if message.Git.Branch != "master" {
-		span.Error("Not on the master branch")
-		return
-	}
+	// if message.Git.Branch != "master" {
+	// 	span.Error("Not on the master branch")
+	// 	return
+	// }
 
 	conn, err := grpc.Dial(env.Host(), grpc.WithInsecure())
 	if err != nil {
-		fmt.Printf("did not connect: %v", err)
+		fmt.Println(err)
 		return
 	}
 	defer conn.Close()
@@ -51,7 +48,7 @@ func main() {
 	c := wercker.NewNotificationServiceClient(conn)
 	_, err = c.Notify(ctx, message)
 	if err != nil {
-		span.Error(err)
+		fmt.Println(err)
 		return
 	}
 
